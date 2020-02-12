@@ -1,0 +1,30 @@
+version: 2.1
+
+executors:
+  python-lambda:
+    docker:
+      - image: lambci/lambda:build-python3.7
+
+jobs:
+  build:
+    executor: python-lambda
+    steps:
+      - checkout
+      - run: git fetch --unshallow || true
+
+      - run: mkdir -p release
+
+      - run:
+          name: Package application
+          command: |
+            cd src
+            zip -r -g ../release/albedo-in-athena.zip .
+            cd ../
+
+      - deploy:
+          command: |
+            if [ "$CIRCLE_PROJECT_USERNAME" == "packetloop" ]; then
+              if [[ "$CIRCLE_BRANCH" == "master" ]]; then
+                ./scripts/release.sh release
+              fi
+            fi
