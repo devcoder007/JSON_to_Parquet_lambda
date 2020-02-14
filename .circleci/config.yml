@@ -23,7 +23,7 @@ jobs:
 
       - deploy:
           command: |
-            if [ "$CIRCLE_PROJECT_USERNAME" == "packetloop" ]; then
+            if [ "$CIRCLE_PROJECT_USERNAME" == "devcoder007" ]; then
               if [[ "$CIRCLE_BRANCH" == "master" ]]; then
                 ./scripts/release.sh release
               fi

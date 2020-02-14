@@ -1,0 +1,4 @@
+deps/*
+release/*
+.DS_STORE
+.history
