@@ -19,6 +19,8 @@ jobs:
           command: |
             cd src
             zip -r -g ../release/albedo-in-athena.zip .
+            cd ..
+            cd script
             cp test.txt ../release/
             cd ../
 
