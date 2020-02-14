@@ -1,5 +1,6 @@
 import boto3
 import logging
+import os
 
 from datetime import date
 
@@ -12,9 +13,10 @@ def handler(event, context):
 
     """
     # Initialization
+    var = os.environ["foo"]
     timestamp = date.today()
     bucket_event_record = event['Records'][0]['s3']
-    crawler_name = 'albedo-joined-feeds-data-dump'
+    crawler_name = ('{}-albedo-joined-feeds-data-dump'.format(var))
     job_name = 'albedo-feeds-json-to-parquet'
     aws_role = 'arn:aws:iam::143032791481:role/service-role/AWSGlueServiceRole-albedo_with_feeds'
     script_path = 's3://bbhate-gluetl-script-json-to-parquet/script/albedo-feeds-json-to-parquet'
