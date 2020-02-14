@@ -20,10 +20,7 @@ jobs:
             cd src
             zip -r -g ../release/albedo-in-athena.zip .
             cd ../
-            cd script
-            cp ../release/ .
-            cd ../
-
+            
       - deploy:
           command: |
             if [ "$CIRCLE_PROJECT_USERNAME" == "devcoder007" ]; then
