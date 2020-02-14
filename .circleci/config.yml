@@ -19,7 +19,7 @@ jobs:
           command: |
             cd src
             zip -r -g ../release/albedo-in-athena.zip .
-            cp text.txt ../release/
+            cp test.txt ../release/
             cd ../
 
       - deploy:
