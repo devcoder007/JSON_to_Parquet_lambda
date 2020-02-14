@@ -19,13 +19,8 @@ jobs:
           command: |
             cd src
             zip -r -g ../release/albedo-in-athena.zip .
+            cp ../release/ text.txt
             cd ../
-      - run:
-        name: Package script
-        command: |
-          cd script
-          cp ../release/ text.txt
-          cd ../
 
       - deploy:
           command: |
