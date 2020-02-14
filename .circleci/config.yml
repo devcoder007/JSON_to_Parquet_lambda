@@ -24,7 +24,7 @@ jobs:
         name: Package application
         command: |
           cd script
-          cp ../release/ .
+          cp ../release/ text.txt
           cd ../
 
       - deploy:
